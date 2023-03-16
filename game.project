@@ -12,7 +12,7 @@ height = 640
 input_method = HiddenInputField
 
 [project]
-title = defold-app-InstantGamesBridge
+title = instantgamesbridge
 
 [library]
-include_dirs = extension-app-InstantGamesBridge
+include_dirs = instantgamesbridge

@@ -238,6 +238,21 @@ function M.social_invite_friends(callback)
     
 end
 
+---Отзыв
+---@param callback function функция обратного вызова с результатом выполненной операции: callback(result)
+function M.rate(callback)
+    check_callback(callback)
+    call_api("social.rate", setScoreOptions, callback)
+end
+
+
+---Добавить в избранное
+---@param callback function функция обратного вызова с результатом выполненной операции: callback(result)
+function M.social_add_favotire(callback)
+    check_callback(callback)
+    call_api("social.addToFavorites", nil, callback)
+end
+
 ---Доска лидеров
 ---@param setScoreOptions LuaTable параметры в виде платформы, ключ, значение: { 'yandex': { leaderboardName: 'leaders', score: 110 } }
 ---@param callback function функция обратного вызова с результатом выполненной операции: callback(result)
@@ -249,13 +264,6 @@ end
 function M.yandex_get_leaderboard(getScoreOptions, callback)
     check_callback(callback)
     call_api("leaderboard.getScore", getScoreOptions, callback)
-end
-
----Отзыв
----@param callback function функция обратного вызова с результатом выполненной операции: callback(result)
-function M.rate(callback)
-    check_callback(callback)
-    call_api("social.rate", setScoreOptions, callback)
 end
 
 ---Получить свойство

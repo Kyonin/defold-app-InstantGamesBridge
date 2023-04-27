@@ -115,7 +115,6 @@ end
 ---Инициализация instant games bridge
 ---@param callback function функция обратного вызова по завершению инициализации: callback(success)
 function M.init(callback)
-    html5.run("console.log('LOG:init ibg')")
     if is_init then
         error("Instant games bridge already initialized!", 2)
     end

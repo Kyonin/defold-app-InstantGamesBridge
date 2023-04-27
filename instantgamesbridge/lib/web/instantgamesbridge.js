@@ -8,12 +8,11 @@ let LibraryInstantGamesBridge = {
 
         init_callbacks: function (igb, callback_ids) {
             igb.advertisement.on(igb.EVENT_NAME.INTERSTITIAL_STATE_CHANGED, (state) => {
-                console.log('Interstitial state:', state, callback_ids.interstitial_state_changed);
-                console.log('igb adv', igb);
+                //console.log('Interstitial state:', state, callback_ids.interstitial_state_changed);
                 InstantGamesBridgeLib.send(callback_ids.interstitial_state_changed, state);
             });
             igb.advertisement.on(igb.EVENT_NAME.REWARDED_STATE_CHANGED, (state) => {
-                console.log('Rewarded state:', state,callback_ids.rewarded_state_changed);
+                //console.log('Rewarded state:', state,callback_ids.rewarded_state_changed);
                 InstantGamesBridgeLib.send(callback_ids.rewarded_state_changed, state);
             });
         },
@@ -114,13 +113,13 @@ let LibraryInstantGamesBridge = {
                             }
                             return JSON.stringify({error: `"${typeof result}" type not supported!`});
                         } else {
-                            console.log("params", array_parameters);
+                            //console.log("params", array_parameters);
                             if(Array.isArray(array_parameters)) {
                                 var fnc = called_function(...array_parameters);
                             } else {
                                 var fnc = called_function(array_parameters);
                             }
-                            console.log("FNC", fnc);
+                            //console.log("FNC", fnc);
                             if (Promise.prototype.isPrototypeOf(fnc)) {
                                 fnc.then((result) => {
                                     console.log("promise", result, "calback", callback_id);
@@ -133,7 +132,7 @@ let LibraryInstantGamesBridge = {
                                 if (save_as_var) {
                                     InstantGamesBridgeLib._data[save_as_var] = "success";
                                 }
-                                console.log("no promise");
+                                //console.log("no promise");
                                 InstantGamesBridgeLib.send(callback_id, "success");
                             }
                         }

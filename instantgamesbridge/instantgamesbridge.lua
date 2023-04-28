@@ -55,7 +55,7 @@ local function decode_result(result)
 end
 
 local function on_event_callback(self, message, id)
-    html5.run("console.log('LOG:on_event_callback')")
+    --html5.run("console.log('LOG:on_event_callback')")
     local callback_name = get_event_callback_name(id)
     if callback_name ~= nil then
         local callback = M.callbacks[callback_name]

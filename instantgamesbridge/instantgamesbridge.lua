@@ -179,6 +179,21 @@ function M.ads_show_rewarded(callback)
     call_api("advertisement.showRewarded", nil, callback)
 end
 
+---Показать баннеры
+---@param callback function функция обратного вызова по завершению рекламы: callback(result)
+function M.ads_show_banner(banner_options, callback)
+    check_table(banner_options, "banner_options")
+    check_callback(callback)
+    call_api("advertisement.showBanner", banner_options, callback)
+end
+
+---Скрыть баннеры
+---@param callback function функция обратного вызова по завершению рекламы: callback(result)
+function M.ads_hide_banner()
+    check_callback(callback)
+    call_api("advertisement.hideBanner", nil, callback)
+end
+
 ---Получить значение поля key
 ---@param key string ключ
 ---@param callback function функция обратного вызова с результатом: callback(result)

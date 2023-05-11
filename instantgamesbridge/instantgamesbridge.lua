@@ -180,14 +180,14 @@ function M.ads_show_rewarded(callback)
 end
 
 ---Показать баннеры
-function M.ads_show_banner(banner_options)
+function M.ads_show_banner(banner_options, callback)
     check_table(banner_options, "banner_options")
-    call_api("advertisement.showBanner", banner_options)
+    call_api("advertisement.showBanner", banner_options, callback)
 end
 
 ---Скрыть баннеры
-function M.ads_hide_banner()
-    call_api("advertisement.hideBanner", nil)
+function M.ads_hide_banner(callback)
+    call_api("advertisement.hideBanner", nil, callback)
 end
 
 ---Получить значение поля key

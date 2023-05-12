@@ -276,6 +276,11 @@ function M.yandex_get_leaderboard(getScoreOptions, callback)
     call_api("leaderboard.getScore", getScoreOptions, callback)
 end
 
+function M.yandex_get_entitys(getScoreOptions, callback)
+    check_callback(callback)
+    call_api("leaderboard.getEntries", getScoreOptions, callback)
+end
+
 ---Инициализация игрока
 ---@param authorizationOptions LuaTable параметры в виде платформы, ключ, значение: { 'yandex': { scopes: true // Request access to name and photo } }
 ---@param callback function функция обратного вызова с результатом выполненной операции: callback(result)
@@ -291,5 +296,9 @@ function M.get_property_name(prop_name, callback)
     call_api("getProperty", prop_name, callback, false)
 end
 
+function M.call(method, parameters, callback)
+    check_callback(callback)
+    return call_api(method, parameters, callback)
+end
 
 return M
